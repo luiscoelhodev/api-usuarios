@@ -24,7 +24,7 @@ server.post('/users', (request, response) => {
         return response.status(404).send({message: 'Please enter the required information: ID and Name.'})
     }
 
-    if (body.id == '' || body.name == '') {
+    else if (!body.id || !body.name) {
         return response.send({message: 'The information provided is not complete! ID or NAME missing.'})
     }
 
