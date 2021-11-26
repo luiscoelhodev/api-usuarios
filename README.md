@@ -1,2 +1,2 @@
 # api_usuarios
- API simples para inserção e listagem de usuários.
+My first simple API to add and list users with 2 properties: ID and NAME.
