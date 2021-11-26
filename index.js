@@ -28,20 +28,25 @@ server.post('/users', (request, response) => {
         return response.send({message: 'The information provided is not complete! ID or NAME missing.'})
     }
 
-    for(i=0; i<= db.length ; i++) {
-        if (db[i].id == body.id) {
-            contId++
-            return response.status(400).send({message: `This ID is already being used by another user!`})
+    else {
+        if (!db) {
+            for(i=0; i<= db.length ; i++) {
+                if (db[i].id == body.id) {
+                    contId++
+                    return response.status(400).send({message: `This ID is already being used by another user!`})
+                }
+        
+            }
         }
 
+        if (contId === 0) {
+            console.log(body);
+                db.push(body)
+                console.log(db)
+                return response.status(201).send({message:`User ${body.name} was succesfully created.`})
+        } 
     }
-    if (contId === 0) {
-        console.log(body);
-            db.push(body)
-            console.log(db)
-            return response.status(201).send({message:`User ${body.name} was succesfully created.`})
-    } 
-    
+  
 
 })
 
