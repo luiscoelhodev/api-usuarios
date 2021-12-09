@@ -5,6 +5,8 @@ const routes = require('./routes') // Importando o arquivo 'routes.js' que se en
 const server = express() // Utilizando o express numa variável para que possamos fazer os comandos abaixo
 const port = 8080 // Definindo a porta como uma variável
 
+global.globalDatabase = []; // Variável global para servir como DB
+
 server.use(express.json()) // Prepara a API para lidar com arquivos em formato json
 
 server.use('/', routes) // A API usará os endpoints definidos no arquivo routes.js 
